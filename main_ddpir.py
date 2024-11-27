@@ -299,7 +299,7 @@ def main():
                 util.imsave_batch(k*255.*200, names, config.E_path, 'motion_kernel_')
                 #np.save(os.path.join(E_path, 'motion_kernel.npy'), k)
                 k_4d = torch.from_numpy(k).to(device)
-                k_4d = torch.einsum('ab,cd->abcd',torch.eye(3).to(device),k_4d)
+                k_4d = k_4d.unsqueeze(1)    # B, 1, H, W
                 x = y
                 def degrade_op(x):
                     x = x / 2 + 0.5
