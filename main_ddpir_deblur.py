@@ -74,7 +74,7 @@ def main():
     results                 = os.path.join(cwd, 'results')      # fixed
     result_name             = f'{testset_name}_{task_current}_{generate_mode}_{model_name}_sigma{noise_level_img}_NFE{iter_num}_eta{eta}_zeta{zeta}_lambda{lambda_}_blurmode{blur_mode}'
     model_path              = os.path.join(model_zoo, model_name+'.pt')
-    device                  = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    device                  = torch.device('cuda')
     torch.cuda.empty_cache()
 
     # noise schedule 

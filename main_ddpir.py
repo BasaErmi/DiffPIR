@@ -394,7 +394,7 @@ def main():
                                             x0 = x0 + config.guidance_scale * (x0_p-x0)
                                         elif config.task == "deblur" or config.sr_mode == 'blur':
                                             x0_p = x0 / 2 + 0.5
-                                            x0_p = sr.data_solution(x0_p.float(), FB, FBC, F2B, FBFy, tau, config.sf)
+                                            x0_p = sr.data_solution(x0_p.float(), FB, FBC, F2B, FBFy, tau, config.sf)  # here to solve data fidelity
                                             x0_p = x0_p * 2 - 1
                                             # effective x0
                                             x0 = x0 + config.guidance_scale * (x0_p-x0)
